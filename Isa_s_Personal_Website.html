@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Isa | Business Development</title>
+  <style>
+    :root {
+      --bg: #0a0d14;
+      --surface: #111520;
+      --card: #161c2d;
+      --border: #1e2a45;
+      --accent: #4f8ef7;
+      --accent2: #7c3aed;
+      --text: #e2e8f0;
+      --muted: #7a8ba8;
+      --green: #10b981;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 6%;
+      background: rgba(10,13,20,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-weight: 700; font-size: 1.1rem; letter-spacing: 0.05em; }
+    .logo span { color: var(--accent); }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    nav ul a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--accent); color: #fff; padding: 0.45rem 1.1rem;
+      border-radius: 6px; font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 8rem 6% 4rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(79,142,247,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: -100px; left: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { max-width: 680px; position: relative; z-index: 1; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(79,142,247,0.1); border: 1px solid rgba(79,142,247,0.25);
+      color: var(--accent); padding: 0.3rem 0.8rem; border-radius: 999px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; margin-bottom: 1.5rem;
+    }
+    .badge::before { content: '●'; font-size: 0.5rem; color: var(--green); }
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 800; line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+    h1 .highlight {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      font-size: 1.1rem; color: var(--muted); max-width: 520px;
+      margin-bottom: 2rem; line-height: 1.7;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent); color: #fff;
+      padding: 0.75rem 1.6rem; border-radius: 8px;
+      font-weight: 600; text-decoration: none; font-size: 0.95rem;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent; color: var(--text);
+      padding: 0.75rem 1.6rem; border-radius: 8px;
+      font-weight: 600; text-decoration: none; font-size: 0.95rem;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--accent); transform: translateY(-1px); }
+
+    /* STATS STRIP */
+    .stats {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 6%;
+      display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-size: 2rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .stat-label { font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; }
+
+    /* SECTIONS */
+    section { padding: 5rem 6%; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800; margin-bottom: 0.8rem;
+    }
+    .section-sub { color: var(--muted); max-width: 520px; margin-bottom: 3rem; }
+
+    /* EXPERIENCE */
+    .exp-grid { display: grid; gap: 1.5rem; }
+    .exp-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.6rem 2rem;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .exp-card::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+      background: linear-gradient(180deg, var(--accent), var(--accent2));
+      border-radius: 3px 0 0 3px;
+    }
+    .exp-card:hover { border-color: rgba(79,142,247,0.4); transform: translateY(-2px); }
+    .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem; }
+    .exp-title { font-weight: 700; font-size: 1rem; }
+    .exp-company { color: var(--accent); font-weight: 600; font-size: 0.9rem; }
+    .exp-date { color: var(--muted); font-size: 0.8rem; white-space: nowrap; }
+    .exp-desc { color: var(--muted); font-size: 0.88rem; line-height: 1.65; margin-top: 0.6rem; }
+    .exp-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; }
+    .tag {
+      background: rgba(79,142,247,0.08); border: 1px solid rgba(79,142,247,0.18);
+      color: var(--accent); padding: 0.2rem 0.6rem; border-radius: 4px;
+      font-size: 0.75rem; font-weight: 500;
+    }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.2rem; }
+    .skill-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.4rem 1.6rem;
+      transition: border-color 0.2s;
+    }
+    .skill-card:hover { border-color: rgba(79,142,247,0.35); }
+    .skill-icon { font-size: 1.5rem; margin-bottom: 0.6rem; }
+    .skill-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.3rem; }
+    .skill-desc { color: var(--muted); font-size: 0.82rem; }
+
+    /* LANGUAGES */
+    .lang-grid { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .lang-pill {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1rem 1.4rem;
+      display: flex; align-items: center; gap: 0.8rem;
+      transition: border-color 0.2s;
+    }
+    .lang-pill:hover { border-color: rgba(79,142,247,0.35); }
+    .lang-flag { font-size: 1.4rem; }
+    .lang-name { font-weight: 700; font-size: 0.9rem; }
+    .lang-level { color: var(--muted); font-size: 0.78rem; }
+
+    /* CONTACT */
+    .contact-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+    .contact-box {
+      background: linear-gradient(135deg, rgba(79,142,247,0.08), rgba(124,58,237,0.08));
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 3rem;
+      text-align: center; max-width: 600px; margin: 0 auto;
+    }
+    .contact-box h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.8rem; }
+    .contact-box p { color: var(--muted); margin-bottom: 2rem; }
+    .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .contact-link {
+      display: flex; align-items: center; gap: 0.5rem;
+      background: var(--card); border: 1px solid var(--border);
+      color: var(--text); text-decoration: none;
+      padding: 0.65rem 1.2rem; border-radius: 8px;
+      font-size: 0.88rem; font-weight: 600;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .contact-link:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer {
+      text-align: center; padding: 2rem 6%;
+      color: var(--muted); font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      nav ul { display: none; }
+      .stats { gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Isa<span>.</span></div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:your@email.com" class="nav-cta">Get in touch</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="about">
+  <div class="hero-content">
+    <div class="badge">Open to BDR / SDR opportunities</div>
+    <h1>
+      Business Development<br>
+      <span class="highlight">Built for Growth.</span>
+    </h1>
+    <p class="hero-sub">
+      I help B2B SaaS companies open doors, build pipeline, and close deals across EMEA.
+      Multilingual, data-driven, and obsessed with finding the right fit for the right prospect.
+    </p>
+    <div class="hero-btns">
+      <a href="#experience" class="btn-primary">View my experience</a>
+      <a href="#contact" class="btn-secondary">Let's connect →</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">€25K+</div>
+    <div class="stat-label">Contributed to closed deal</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">18%</div>
+    <div class="stat-label">Positive reply rate (outbound)</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">4</div>
+    <div class="stat-label">Languages spoken</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">3+</div>
+    <div class="stat-label">Years in operations & sales</div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Career</div>
+  <h2 class="section-title">Experience</h2>
+  <p class="section-sub">From outbound B2B SaaS sales to hospitality operations — I thrive in fast-paced, people-first environments.</p>
+
+  <div class="exp-grid">
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">BDR Intern</div>
+          <div class="exp-company">Dashmote BV</div>
+        </div>
+        <div class="exp-date">Aug 2025 – Mar 2026</div>
+      </div>
+      <div class="exp-desc">
+        Conducted outbound B2B SaaS sales across EMEA, engaging enterprise accounts including PepsiCo UK and Heineken Ireland.
+        Contributed to a €25,000 closed deal and achieved an 18% positive reply rate through highly personalized outreach.
+        Leveraged MEDDPICC and BANT frameworks to qualify and advance pipeline.
+      </div>
+      <div class="exp-tags">
+        <span class="tag">MEDDPICC</span>
+        <span class="tag">BANT</span>
+        <span class="tag">HubSpot</span>
+        <span class="tag">Pipedrive</span>
+        <span class="tag">Clay</span>
+        <span class="tag">EMEA</span>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Bar Manager & Assistant General Manager</div>
+          <div class="exp-company">SojuBar Amsterdam</div>
+        </div>
+        <div class="exp-date">Jun 2023 – Present</div>
+      </div>
+      <div class="exp-desc">
+        Overseeing daily bar operations and managing a team of ~10 people. Responsible for scheduling, stock management,
+        customer experience, and training new staff. Gained deep expertise in Lightspeed POS across every shift for 3+ years.
+      </div>
+      <div class="exp-tags">
+        <span class="tag">Team Leadership</span>
+        <span class="tag">Operations</span>
+        <span class="tag">Lightspeed POS</span>
+        <span class="tag">Hospitality</span>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">BSc Business Administration (Honours)</div>
+          <div class="exp-company">University of Amsterdam</div>
+        </div>
+        <div class="exp-date">Expected 2026</div>
+      </div>
+      <div class="exp-desc">
+        Minor in Political Economy. Developing a strong foundation in strategy, organizational behavior, and international markets.
+        Applying academic frameworks directly to real-world B2B sales and business development contexts.
+      </div>
+      <div class="exp-tags">
+        <span class="tag">Business Strategy</span>
+        <span class="tag">Political Economy</span>
+        <span class="tag">International Markets</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="section-label">Toolkit</div>
+  <h2 class="section-title">Skills & Tools</h2>
+  <p class="section-sub">The stack I use to research, personalize, and convert.</p>
+
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">🎯</div>
+      <div class="skill-name">Outbound Sales</div>
+      <div class="skill-desc">Cold email, LinkedIn outreach, multi-touch sequences — MEDDPICC & BANT qualified.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🔬</div>
+      <div class="skill-name">Prospect Research</div>
+      <div class="skill-desc">Clay, FullEnrich, and AI-powered workflows to build hyper-targeted lead lists.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📊</div>
+      <div class="skill-name">CRM Management</div>
+      <div class="skill-desc">HubSpot and Pipedrive — pipeline hygiene, activity logging, and reporting.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🤖</div>
+      <div class="skill-name">AI & Automation</div>
+      <div class="skill-desc">ChatGPT, Claude, and Clay to scale personalization without losing quality.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🧾</div>
+      <div class="skill-name">Business Operations</div>
+      <div class="skill-desc">KVK-registered sole proprietorship — invoicing, financial recordkeeping, compliance.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">👥</div>
+      <div class="skill-name">Team Leadership</div>
+      <div class="skill-desc">Managing ~10 people in a high-volume hospitality environment for 3+ years.</div>
+    </div>
+  </div>
+
+  <!-- Languages -->
+  <div style="margin-top: 3rem;">
+    <div class="section-label">Languages</div>
+    <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1.2rem;">Multilingual across 4 languages</h3>
+    <div class="lang-grid">
+      <div class="lang-pill">
+        <span class="lang-flag">🇨🇳</span>
+        <div><div class="lang-name">Mandarin</div><div class="lang-level">Native / Near-native</div></div>
+      </div>
+      <div class="lang-pill">
+        <span class="lang-flag">🇬🇧</span>
+        <div><div class="lang-name">English</div><div class="lang-level">Fluent</div></div>
+      </div>
+      <div class="lang-pill">
+        <span class="lang-flag">🇭🇰</span>
+        <div><div class="lang-name">Cantonese</div><div class="lang-level">Intermediate</div></div>
+      </div>
+      <div class="lang-pill">
+        <span class="lang-flag">🇳🇱</span>
+        <div><div class="lang-name">Dutch</div><div class="lang-level">Basic – Intermediate</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="contact-box">
+    <h2>Let's build something together.</h2>
+    <p>Open to BDR, SDR, and inside sales roles in B2B SaaS and tech — especially international markets.</p>
+    <div class="contact-links">
+      <a href="mailto:your@email.com" class="contact-link">✉️ Email me</a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-link">💼 LinkedIn</a>
+      <a href="#" class="contact-link">📄 Download CV</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Isa · Built with purpose, not just code.</p>
+</footer>
+
+</body>
+</html>
