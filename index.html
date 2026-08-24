@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Isa | Business Development</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
   <style>
     :root {
       --bg: #0a0d14;
@@ -186,6 +187,37 @@
     }
     .section-sub { color: var(--muted); max-width: 520px; margin-bottom: 3rem; }
 
+    /* MAP SECTION */
+    .map-container {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+      height: 500px;
+    }
+    #worldMap {
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    .leaflet-container {
+      background: var(--surface) !important;
+    }
+    .leaflet-control-zoom {
+      border: 1px solid var(--border) !important;
+      border-radius: 8px !important;
+    }
+    .leaflet-control-zoom-in, .leaflet-control-zoom-out {
+      background: var(--card) !important;
+      color: var(--accent) !important;
+      border: 1px solid var(--border) !important;
+      font-weight: 700;
+    }
+    .leaflet-control-zoom-in:hover, .leaflet-control-zoom-out:hover {
+      background: rgba(79, 142, 247, 0.15) !important;
+    }
+
     /* EXPERIENCE */
     .exp-grid { display: grid; gap: 1.5rem; }
     .exp-card {
@@ -297,6 +329,7 @@
       .logo-container { gap: 1.5rem; }
       .logo-item { min-width: 110px; min-height: 65px; padding: 0.8rem 1rem; }
       .logo-item-text { font-size: 0.75rem; }
+      .map-container { height: 350px; }
     }
   </style>
 </head>
@@ -308,6 +341,7 @@
   <ul>
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#markets">Markets</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -381,6 +415,17 @@
     </div>
   </div>
 </div>
+
+<!-- MARKETS MAP -->
+<section id="markets">
+  <div class="section-label">Global Reach</div>
+  <h2 class="section-title">Markets I've worked with</h2>
+  <p class="section-sub">Outbound campaigns across 20+ countries across Europe, Americas, and Asia. Culturally aware and data-driven sales across every region.</p>
+  
+  <div class="map-container">
+    <div id="worldMap"></div>
+  </div>
+</section>
 
 <!-- EXPERIENCE -->
 <section id="experience">
@@ -552,6 +597,102 @@
 <footer>
   <p>© 2026 Isa · Built with purpose, not just code.</p>
 </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+  // Initialize map
+  const map = L.map('worldMap', {
+    center: [30, 10],
+    zoom: 2,
+    zoomControl: true,
+    dragging: true,
+    touchZoom: true,
+  });
+
+  // Add dark tile layer
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '© OpenStreetMap contributors © CARTO',
+    maxZoom: 19,
+  }).addTo(map);
+
+  // List of countries to highlight with their coordinates (center points for markers)
+  const highlightedCountries = {
+    // Europe
+    'DK': { name: 'Denmark', coords: [56.2639, 9.5018] },
+    'FI': { name: 'Finland', coords: [61.9241, 25.7482] },
+    'IE': { name: 'Ireland', coords: [53.4129, -8.2439] },
+    'NO': { name: 'Norway', coords: [60.4720, 8.4689] },
+    'SE': { name: 'Sweden', coords: [60.1282, 18.6435] },
+    'GB': { name: 'United Kingdom', coords: [55.3781, -3.4360] },
+    'BE': { name: 'Belgium', coords: [50.5039, 4.4699] },
+    'FR': { name: 'France', coords: [46.2276, 2.2137] },
+    'DE': { name: 'Germany', coords: [51.1657, 10.4515] },
+    'NL': { name: 'Netherlands', coords: [52.1326, 5.2913] },
+    'CH': { name: 'Switzerland', coords: [46.8182, 8.2275] },
+    'CZ': { name: 'Czechia', coords: [49.8175, 15.4730] },
+    'HU': { name: 'Hungary', coords: [47.1625, 19.5033] },
+    'PL': { name: 'Poland', coords: [51.9194, 19.1451] },
+    'RO': { name: 'Romania', coords: [45.9432, 24.9668] },
+    'SK': { name: 'Slovakia', coords: [48.6690, 19.6990] },
+    'IT': { name: 'Italy', coords: [41.8719, 12.5674] },
+    'PT': { name: 'Portugal', coords: [39.3999, -8.2245] },
+    'ES': { name: 'Spain', coords: [40.4637, -3.7492] },
+    // Americas
+    'US': { name: 'USA', coords: [37.0902, -95.7129] },
+    'CA': { name: 'Canada', coords: [56.1304, -106.3468] },
+    'MX': { name: 'Mexico', coords: [23.6345, -102.5528] },
+    'BR': { name: 'Brazil', coords: [-14.2350, -51.9253] },
+    // Africa
+    'ZA': { name: 'South Africa', coords: [-30.5595, 22.9375] },
+    // Asia
+    'JP': { name: 'Japan', coords: [36.2048, 138.2529] },
+    'KR': { name: 'South Korea', coords: [35.9078, 127.7669] },
+    'TW': { name: 'Taiwan', coords: [23.6978, 120.9605] },
+    'SG': { name: 'Singapore', coords: [1.3521, 103.8198] },
+    'KH': { name: 'Cambodia', coords: [12.5657, 104.9910] },
+    'ID': { name: 'Indonesia', coords: [-0.7893, 113.9213] },
+    'MY': { name: 'Malaysia', coords: [4.2105, 101.6964] },
+    'TH': { name: 'Thailand', coords: [15.8700, 100.9925] },
+    'VN': { name: 'Vietnam', coords: [14.0583, 108.2772] },
+  };
+
+  // Create GeoJSON features for highlighted countries
+  const highlightedCountryCodes = Object.keys(highlightedCountries);
+
+  // Add circle markers for each country
+  Object.values(highlightedCountries).forEach((country) => {
+    L.circleMarker(country.coords, {
+      radius: 6,
+      fillColor: '#4f8ef7',
+      color: '#7c3aed',
+      weight: 2,
+      opacity: 0.8,
+      fillOpacity: 0.6,
+    })
+    .bindPopup(`<div style="color: #e2e8f0; font-weight: 600; text-align: center;">${country.name}</div>`)
+    .addTo(map);
+  });
+
+  // Fetch world GeoJSON
+  fetch('https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson')
+    .then(response => response.json())
+    .then(data => {
+      L.geoJSON(data, {
+        style: function(feature) {
+          const countryCode = feature.properties['ISO_A2'];
+          const isHighlighted = highlightedCountryCodes.includes(countryCode);
+          
+          return {
+            fillColor: isHighlighted ? 'rgba(79, 142, 247, 0.3)' : 'rgba(122, 139, 168, 0.05)',
+            weight: isHighlighted ? 1.5 : 0.5,
+            opacity: 0.8,
+            color: isHighlighted ? 'rgba(79, 142, 247, 0.6)' : 'rgba(30, 42, 69, 0.3)',
+            fillOpacity: isHighlighted ? 0.3 : 0.05,
+          };
+        },
+      }).addTo(map);
+    });
+</script>
 
 </body>
 </html>
