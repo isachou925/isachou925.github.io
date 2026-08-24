@@ -161,22 +161,17 @@
       max-width: 110px;
       max-height: 55px;
       object-fit: contain;
-      filter: brightness(0.9);
+      filter: grayscale(100%) brightness(0.9);
       transition: filter 0.2s;
     }
     .logo-item:hover img {
-      filter: brightness(1);
+      filter: grayscale(100%) brightness(1);
     }
     .logo-item-text {
       font-weight: 600;
       font-size: 0.85rem;
       color: var(--muted);
       text-align: center;
-    }
-
-    /* Make Pepsi logo black & white (grayscale). Adjust contrast/brightness if you want a stronger effect) */
-    .logo-item.pepsi img {
-      filter: grayscale(100%) contrast(120%) brightness(95%);
     }
 
     /* SECTIONS */
@@ -363,26 +358,26 @@
 <div class="logo-belt">
   <div class="logo-belt-title">Enterprise Clients & Brands</div>
   <div class="logo-container">
-    <div class="logo-item pepsi">
+    <div class="logo-item">
       <img src="Pepsi.png" alt="PepsiCo logo" />
     </div>
     <div class="logo-item">
       <img src="Heineken.png" alt="Heineken logo" />
     </div>
     <div class="logo-item">
-      <div class="logo-item-text">Dr Pepper</div>
+      <img src="Dr Pepper.png" alt="Dr Pepper logo" />
     </div>
     <div class="logo-item">
-      <div class="logo-item-text">Asahi</div>
+      <img src="Asahi.jpeg" alt="Asahi logo" />
     </div>
     <div class="logo-item">
-      <div class="logo-item-text">Suntory</div>
+      <img src="Suntory.png" alt="Suntory logo" />
     </div>
     <div class="logo-item">
-      <div class="logo-item-text">Carlsberg</div>
+      <img src="Carlsberg.png" alt="Carlsberg logo" />
     </div>
     <div class="logo-item">
-      <div class="logo-item-text">Molson Coors</div>
+      <img src="Molson_Coors.png" alt="Molson Coors logo" />
     </div>
   </div>
 </div>
