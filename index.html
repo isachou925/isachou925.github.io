@@ -123,23 +123,41 @@
     }
     .stat-label { font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; }
 
-    /* LOGO BELT */
+    /* LOGO BELT - INFINITE SCROLL */
     .logo-belt {
       background: var(--bg);
       border-bottom: 1px solid var(--border);
       padding: 3rem 6%;
+      overflow: hidden;
     }
     .logo-belt-title {
       font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
       text-transform: uppercase; color: var(--accent); 
       margin-bottom: 2rem; text-align: center;
     }
+    .logo-scroll-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+    }
     .logo-container {
       display: flex;
-      justify-content: center;
-      align-items: center;
       gap: 2.5rem;
-      flex-wrap: wrap;
+      animation: scroll 40s linear infinite;
+      width: max-content;
+    }
+    .logo-container:hover {
+      animation-play-state: paused;
+    }
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
     }
     .logo-item {
       display: flex;
@@ -152,6 +170,7 @@
       transition: all 0.2s;
       min-width: 130px;
       min-height: 75px;
+      flex-shrink: 0;
     }
     .logo-item:hover {
       border-color: rgba(79, 142, 247, 0.4);
@@ -326,7 +345,6 @@
     @media (max-width: 600px) {
       nav ul { display: none; }
       .stats { gap: 2rem; }
-      .logo-container { gap: 1.5rem; }
       .logo-item { min-width: 110px; min-height: 65px; padding: 0.8rem 1rem; }
       .logo-item-text { font-size: 0.75rem; }
       .map-container { height: 350px; }
@@ -388,30 +406,54 @@
   </div>
 </div>
 
-<!-- LOGO BELT -->
+<!-- LOGO BELT - INFINITE SCROLL -->
 <div class="logo-belt">
   <div class="logo-belt-title">Enterprise Clients & Brands</div>
-  <div class="logo-container">
-    <div class="logo-item">
-      <img src="Pepsi.png" alt="PepsiCo logo" />
-    </div>
-    <div class="logo-item">
-      <img src="Heineken.png" alt="Heineken logo" />
-    </div>
-    <div class="logo-item">
-      <img src="Dr Pepper.png" alt="Dr Pepper logo" />
-    </div>
-    <div class="logo-item">
-      <img src="Asahi.jpeg" alt="Asahi logo" />
-    </div>
-    <div class="logo-item">
-      <img src="Suntory.png" alt="Suntory logo" />
-    </div>
-    <div class="logo-item">
-      <img src="Carlsberg.png" alt="Carlsberg logo" />
-    </div>
-    <div class="logo-item">
-      <img src="Molson_Coors.png" alt="Molson Coors logo" />
+  <div class="logo-scroll-wrapper">
+    <div class="logo-container">
+      <div class="logo-item">
+        <img src="Pepsi.png" alt="PepsiCo logo" />
+      </div>
+      <div class="logo-item">
+        <img src="Heineken.png" alt="Heineken logo" />
+      </div>
+      <div class="logo-item">
+        <img src="Dr Pepper.png" alt="Dr Pepper logo" />
+      </div>
+      <div class="logo-item">
+        <img src="Asahi.jpeg" alt="Asahi logo" />
+      </div>
+      <div class="logo-item">
+        <img src="Suntory.png" alt="Suntory logo" />
+      </div>
+      <div class="logo-item">
+        <img src="Carlsberg.png" alt="Carlsberg logo" />
+      </div>
+      <div class="logo-item">
+        <img src="Molson_Coors.png" alt="Molson Coors logo" />
+      </div>
+      <!-- Duplicate for seamless loop -->
+      <div class="logo-item">
+        <img src="Pepsi.png" alt="PepsiCo logo" />
+      </div>
+      <div class="logo-item">
+        <img src="Heineken.png" alt="Heineken logo" />
+      </div>
+      <div class="logo-item">
+        <img src="Dr Pepper.png" alt="Dr Pepper logo" />
+      </div>
+      <div class="logo-item">
+        <img src="Asahi.jpeg" alt="Asahi logo" />
+      </div>
+      <div class="logo-item">
+        <img src="Suntory.png" alt="Suntory logo" />
+      </div>
+      <div class="logo-item">
+        <img src="Carlsberg.png" alt="Carlsberg logo" />
+      </div>
+      <div class="logo-item">
+        <img src="Molson_Coors.png" alt="Molson Coors logo" />
+      </div>
     </div>
   </div>
 </div>
