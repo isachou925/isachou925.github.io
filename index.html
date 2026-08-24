@@ -174,6 +174,27 @@
     .skill-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.3rem; }
     .skill-desc { color: var(--muted); font-size: 0.82rem; }
 
+    /* EDUCATION */
+    .edu-grid { display: grid; gap: 1.2rem; }
+    .edu-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.6rem 2rem;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .edu-card::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+      background: linear-gradient(180deg, var(--accent2), var(--accent));
+      border-radius: 3px 0 0 3px;
+    }
+    .edu-card:hover { border-color: rgba(124,58,237,0.4); transform: translateY(-2px); }
+    .edu-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.4rem; }
+    .edu-degree { font-weight: 700; font-size: 1rem; }
+    .edu-school { color: var(--accent2); font-weight: 600; font-size: 0.9rem; margin-top: 0.1rem; }
+    .edu-date { color: var(--muted); font-size: 0.8rem; white-space: nowrap; }
+    .edu-desc { color: var(--muted); font-size: 0.88rem; line-height: 1.65; margin-top: 0.6rem; }
+
     /* LANGUAGES */
     .lang-grid { display: flex; flex-wrap: wrap; gap: 1rem; }
     .lang-pill {
@@ -233,6 +254,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="mailto:yihsun.c0925@gmail.com" class="nav-cta">Get in touch</a>
@@ -331,25 +353,6 @@
       </div>
     </div>
 
-    <div class="exp-card">
-      <div class="exp-header">
-        <div>
-          <div class="exp-title">BSc Business Administration (Honours)</div>
-          <div class="exp-company">University of Amsterdam</div>
-        </div>
-        <div class="exp-date">Expected 2026</div>
-      </div>
-      <div class="exp-desc">
-        Minor in Political Economy. Developing a strong foundation in strategy, organizational behavior, and international markets.
-        Applying academic frameworks directly to real-world B2B sales and business development contexts.
-      </div>
-      <div class="exp-tags">
-        <span class="tag">Business Strategy</span>
-        <span class="tag">Political Economy</span>
-        <span class="tag">International Markets</span>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -391,28 +394,60 @@
       <div class="skill-desc">Managing ~10 people in a high-volume hospitality environment for 3+ years.</div>
     </div>
   </div>
+</section>
 
-  <!-- Languages -->
-  <div style="margin-top: 3rem;">
-    <div class="section-label">Languages</div>
-    <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1.2rem;">Multilingual across 4 languages</h3>
-    <div class="lang-grid">
-      <div class="lang-pill">
-        <span class="lang-flag">🇨🇳</span>
-        <div><div class="lang-name">Mandarin</div><div class="lang-level">Native</div></div>
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">Academic Background</div>
+  <h2 class="section-title">Education</h2>
+  <p class="section-sub">Grounding business instincts in strategy, economics, and international thinking.</p>
+
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-header">
+        <div>
+          <div class="edu-degree">BSc Business Administration (Honours)</div>
+          <div class="edu-school">University of Amsterdam</div>
+        </div>
+        <div class="edu-date">Expected 2026</div>
       </div>
-      <div class="lang-pill">
-        <span class="lang-flag">🇬🇧</span>
-        <div><div class="lang-name">English</div><div class="lang-level">Native</div></div>
+      <div class="edu-desc">
+        Minor in Political Economy. Building a strong foundation in business strategy, organizational behavior,
+        and international markets — with a focus on applying academic frameworks to real-world B2B sales and
+        business development contexts.
       </div>
-      <div class="lang-pill">
-        <span class="lang-flag">🇭🇰</span>
-        <div><div class="lang-name">Cantonese</div><div class="lang-level">Intermediate</div></div>
+      <div class="exp-tags" style="margin-top: 0.9rem;">
+        <span class="tag">Business Strategy</span>
+        <span class="tag">Political Economy</span>
+        <span class="tag">Organizational Behavior</span>
+        <span class="tag">International Markets</span>
+        <span class="tag">Honours Programme</span>
       </div>
-      <div class="lang-pill">
-        <span class="lang-flag">🇳🇱</span>
-        <div><div class="lang-name">Dutch</div><div class="lang-level">Basic – Intermediate</div></div>
-      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<section style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 4rem 6%;">
+  <div class="section-label">Languages</div>
+  <h2 class="section-title">Multilingual across 4 languages</h2>
+  <p class="section-sub">A natural advantage for EMEA outreach and international client relationships.</p>
+  <div class="lang-grid">
+    <div class="lang-pill">
+      <span class="lang-flag">🇨🇳</span>
+      <div><div class="lang-name">Mandarin</div><div class="lang-level">Native</div></div>
+    </div>
+    <div class="lang-pill">
+      <span class="lang-flag">🇬🇧</span>
+      <div><div class="lang-name">English</div><div class="lang-level">Native</div></div>
+    </div>
+    <div class="lang-pill">
+      <span class="lang-flag">🇭🇰</span>
+      <div><div class="lang-name">Cantonese</div><div class="lang-level">Intermediate</div></div>
+    </div>
+    <div class="lang-pill">
+      <span class="lang-flag">🇳🇱</span>
+      <div><div class="lang-name">Dutch</div><div class="lang-level">Basic – Intermediate</div></div>
     </div>
   </div>
 </section>
