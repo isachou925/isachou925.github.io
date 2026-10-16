@@ -25,8 +25,6 @@
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       line-height: 1.6;
     }
-
-    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; justify-content: space-between; align-items: center;
@@ -46,8 +44,6 @@
       text-decoration: none; transition: opacity 0.2s;
     }
     .nav-cta:hover { opacity: 0.85; }
-
-    /* HERO */
     .hero {
       min-height: 100vh;
       display: flex; align-items: center;
@@ -77,150 +73,36 @@
       text-transform: uppercase; margin-bottom: 1.5rem;
     }
     .badge::before { content: '●'; font-size: 0.5rem; color: var(--green); }
-    h1 {
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
-      font-weight: 800; line-height: 1.1;
-      margin-bottom: 1.2rem;
-    }
-    h1 .highlight {
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .hero-sub {
-      font-size: 1.1rem; color: var(--muted); max-width: 520px;
-      margin-bottom: 2rem; line-height: 1.7;
-    }
+    h1 { font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.2rem; }
+    h1 .highlight { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-sub { font-size: 1.1rem; color: var(--muted); max-width: 520px; margin-bottom: 2rem; line-height: 1.7; }
     .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--accent); color: #fff;
-      padding: 0.75rem 1.6rem; border-radius: 8px;
-      font-weight: 600; text-decoration: none; font-size: 0.95rem;
-      transition: opacity 0.2s, transform 0.2s;
-    }
+    .btn-primary { background: var(--accent); color: #fff; padding: 0.75rem 1.6rem; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 0.95rem; transition: opacity 0.2s, transform 0.2s; }
     .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
-    .btn-secondary {
-      background: transparent; color: var(--text);
-      padding: 0.75rem 1.6rem; border-radius: 8px;
-      font-weight: 600; text-decoration: none; font-size: 0.95rem;
-      border: 1px solid var(--border);
-      transition: border-color 0.2s, transform 0.2s;
-    }
+    .btn-secondary { background: transparent; color: var(--text); padding: 0.75rem 1.6rem; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 0.95rem; border: 1px solid var(--border); transition: border-color 0.2s, transform 0.2s; }
     .btn-secondary:hover { border-color: var(--accent); transform: translateY(-1px); }
-
-    /* STATS STRIP */
-    .stats {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 2.5rem 6%;
-      display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap;
-    }
+    .stats { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 2.5rem 6%; display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; }
     .stat { text-align: center; }
-    .stat-num {
-      font-size: 2rem; font-weight: 800;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
+    .stat-num { font-size: 2rem; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .stat-label { font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; }
-
-    /* LOGO BELT - INFINITE SCROLL */
-    .logo-belt {
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-      padding: 3rem 6%;
-      overflow: hidden;
-    }
-    .logo-belt-title {
-      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--accent); 
-      margin-bottom: 2rem; text-align: center;
-    }
-    .logo-scroll-wrapper {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
-      -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
-    }
-    .logo-container {
-      display: flex;
-      gap: 2.5rem;
-      animation: scroll 40s linear infinite;
-      width: max-content;
-    }
-    .logo-container:hover {
-      animation-play-state: paused;
-    }
-    @keyframes scroll {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-    .logo-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem 1.5rem;
-      background: transparent;
-      border: none;
-      border-radius: 10px;
-      transition: all 0.2s;
-      min-width: 130px;
-      min-height: 75px;
-      flex-shrink: 0;
-    }
-    .logo-item:hover {
-      border-color: rgba(79, 142, 247, 0.4);
-      background: rgba(79, 142, 247, 0.05);
-      transform: translateY(-2px);
-    }
-    .logo-item img {
-      max-width: 110px;
-      max-height: 55px;
-      object-fit: contain;
-      filter: grayscale(100%) brightness(0.9);
-      transition: filter 0.2s;
-    }
-    .logo-item:hover img {
-      filter: grayscale(100%) brightness(1);
-    }
-    .logo-item-text {
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: var(--muted);
-      text-align: center;
-    }
-
-    /* SECTIONS */
+    .logo-belt { background: var(--bg); border-bottom: 1px solid var(--border); padding: 3rem 6%; overflow: hidden; }
+    .logo-belt-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; text-align: center; }
+    .logo-scroll-wrapper { position: relative; width: 100%; overflow: hidden; mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%); -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%); }
+    .logo-container { display: flex; gap: 2.5rem; animation: scroll 40s linear infinite; width: max-content; }
+    .logo-container:hover { animation-play-state: paused; }
+    @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .logo-item { display: flex; align-items: center; justify-content: center; padding: 1rem 1.5rem; background: transparent; border: none; border-radius: 10px; transition: all 0.2s; min-width: 130px; min-height: 75px; flex-shrink: 0; }
+    .logo-item:hover { border-color: rgba(79, 142, 247, 0.4); background: rgba(79, 142, 247, 0.05); transform: translateY(-2px); }
+    .logo-item img { max-width: 110px; max-height: 55px; object-fit: contain; filter: grayscale(100%) brightness(0.9); transition: filter 0.2s; }
+    .logo-item:hover img { filter: grayscale(100%) brightness(1); }
+    .logo-item-text { font-weight: 600; font-size: 0.85rem; color: var(--muted); text-align: center; }
     section { padding: 5rem 6%; }
-    .section-label {
-      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem;
-    }
-    .section-title {
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 800; margin-bottom: 0.8rem;
-    }
+    .section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
+    .section-title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; margin-bottom: 0.8rem; }
     .section-sub { color: var(--muted); max-width: 520px; margin-bottom: 3rem; }
-
-    /* EXPERIENCE */
     .exp-grid { display: grid; gap: 1.5rem; }
-    .exp-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px; padding: 1.6rem 2rem;
-      transition: border-color 0.2s, transform 0.2s;
-      position: relative; overflow: hidden;
-    }
-    .exp-card::before {
-      content: '';
-      position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
-      background: linear-gradient(180deg, var(--accent), var(--accent2));
-      border-radius: 3px 0 0 3px;
-    }
+    .exp-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.6rem 2rem; transition: border-color 0.2s, transform 0.2s; position: relative; overflow: hidden; }
+    .exp-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--accent), var(--accent2)); border-radius: 3px 0 0 3px; }
     .exp-card:hover { border-color: rgba(79,142,247,0.4); transform: translateY(-2px); }
     .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem; }
     .exp-title { font-weight: 700; font-size: 1rem; }
@@ -228,120 +110,42 @@
     .exp-date { color: var(--muted); font-size: 0.8rem; white-space: nowrap; }
     .exp-desc { color: var(--muted); font-size: 0.88rem; line-height: 1.65; margin-top: 0.6rem; }
     .exp-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; }
-    .tag {
-      background: rgba(79,142,247,0.08); border: 1px solid rgba(79,142,247,0.18);
-      color: var(--accent); padding: 0.2rem 0.6rem; border-radius: 4px;
-      font-size: 0.75rem; font-weight: 500;
-    }
-
-    /* SKILLS */
+    .tag { background: rgba(79,142,247,0.08); border: 1px solid rgba(79,142,247,0.18); color: var(--accent); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.2rem; }
-    .skill-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 12px; padding: 1.4rem 1.6rem;
-      transition: border-color 0.2s;
-    }
+    .skill-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.4rem 1.6rem; transition: border-color 0.2s; }
     .skill-card:hover { border-color: rgba(79,142,247,0.35); }
     .skill-icon { font-size: 1.5rem; margin-bottom: 0.6rem; }
     .skill-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.3rem; }
     .skill-desc { color: var(--muted); font-size: 0.82rem; }
-
-    /* EDUCATION */
     .edu-grid { display: grid; gap: 1.2rem; }
-    .edu-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 12px; padding: 1.6rem 2rem;
-      transition: border-color 0.2s, transform 0.2s;
-      position: relative; overflow: hidden;
-    }
-    .edu-card::before {
-      content: '';
-      position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
-      background: linear-gradient(180deg, var(--accent2), var(--accent));
-      border-radius: 3px 0 0 3px;
-    }
+    .edu-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.6rem 2rem; transition: border-color 0.2s, transform 0.2s; position: relative; overflow: hidden; }
+    .edu-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--accent2), var(--accent)); border-radius: 3px 0 0 3px; }
     .edu-card:hover { border-color: rgba(124,58,237,0.4); transform: translateY(-2px); }
     .edu-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.4rem; }
     .edu-degree { font-weight: 700; font-size: 1rem; }
     .edu-school { color: var(--accent2); font-weight: 600; font-size: 0.9rem; margin-top: 0.1rem; }
     .edu-date { color: var(--muted); font-size: 0.8rem; white-space: nowrap; }
     .edu-desc { color: var(--muted); font-size: 0.88rem; line-height: 1.65; margin-top: 0.6rem; }
-
-    /* MAP SECTION */
-    .map-container {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: 2rem;
-      height: 500px;
-    }
-    #worldMap {
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-    }
-    .leaflet-container {
-      background: var(--surface) !important;
-    }
-    .leaflet-control-zoom {
-      border: 1px solid var(--border) !important;
-      border-radius: 8px !important;
-    }
-    .leaflet-control-zoom-in, .leaflet-control-zoom-out {
-      background: var(--card) !important;
-      color: var(--accent) !important;
-      border: 1px solid var(--border) !important;
-      font-weight: 700;
-    }
-    .leaflet-control-zoom-in:hover, .leaflet-control-zoom-out:hover {
-      background: rgba(79, 142, 247, 0.15) !important;
-    }
-    
-    /* LANGUAGES */
+    .map-container { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 2rem; height: 500px; }
+    #worldMap { width: 100%; height: 100%; z-index: 1; }
+    .leaflet-container { background: var(--surface) !important; }
+    .leaflet-control-zoom { border: 1px solid var(--border) !important; border-radius: 8px !important; }
+    .leaflet-control-zoom-in, .leaflet-control-zoom-out { background: var(--card) !important; color: var(--accent) !important; border: 1px solid var(--border) !important; font-weight: 700; }
+    .leaflet-control-zoom-in:hover, .leaflet-control-zoom-out:hover { background: rgba(79, 142, 247, 0.15) !important; }
     .lang-grid { display: flex; flex-wrap: wrap; gap: 1rem; }
-    .lang-pill {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 10px; padding: 1rem 1.4rem;
-      display: flex; align-items: center; gap: 0.8rem;
-      transition: border-color 0.2s;
-    }
+    .lang-pill { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.4rem; display: flex; align-items: center; gap: 0.8rem; transition: border-color 0.2s; }
     .lang-pill:hover { border-color: rgba(79,142,247,0.35); }
     .lang-flag { font-size: 1.4rem; }
     .lang-name { font-weight: 700; font-size: 0.9rem; }
     .lang-level { color: var(--muted); font-size: 0.78rem; }
-
-    /* CONTACT */
-    .contact-section {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-    }
-    .contact-box {
-      background: linear-gradient(135deg, rgba(79,142,247,0.08), rgba(124,58,237,0.08));
-      border: 1px solid var(--border);
-      border-radius: 16px; padding: 3rem;
-      text-align: center; max-width: 600px; margin: 0 auto;
-    }
+    .contact-section { background: var(--surface); border-top: 1px solid var(--border); }
+    .contact-box { background: linear-gradient(135deg, rgba(79,142,247,0.08), rgba(124,58,237,0.08)); border: 1px solid var(--border); border-radius: 16px; padding: 3rem; text-align: center; max-width: 600px; margin: 0 auto; }
     .contact-box h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.8rem; }
     .contact-box p { color: var(--muted); margin-bottom: 2rem; }
     .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-    .contact-link {
-      display: flex; align-items: center; gap: 0.5rem;
-      background: var(--card); border: 1px solid var(--border);
-      color: var(--text); text-decoration: none;
-      padding: 0.65rem 1.2rem; border-radius: 8px;
-      font-size: 0.88rem; font-weight: 600;
-      transition: border-color 0.2s, transform 0.2s;
-    }
+    .contact-link { display: flex; align-items: center; gap: 0.5rem; background: var(--card); border: 1px solid var(--border); color: var(--text); text-decoration: none; padding: 0.65rem 1.2rem; border-radius: 8px; font-size: 0.88rem; font-weight: 600; transition: border-color 0.2s, transform 0.2s; }
     .contact-link:hover { border-color: var(--accent); transform: translateY(-2px); }
-
-    /* FOOTER */
-    footer {
-      text-align: center; padding: 2rem 6%;
-      color: var(--muted); font-size: 0.8rem;
-      border-top: 1px solid var(--border);
-    }
-
+    footer { text-align: center; padding: 2rem 6%; color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--border); }
     @media (max-width: 600px) {
       nav ul { display: none; }
       .stats { gap: 2rem; }
@@ -352,8 +156,6 @@
   </style>
 </head>
 <body>
-
-<!-- NAV -->
 <nav>
   <div class="logo">Isa<span>.</span></div>
   <ul>
@@ -366,371 +168,70 @@
   </ul>
   <a href="mailto:yihsun.c0925@gmail.com" class="nav-cta">Get in touch</a>
 </nav>
-
-<!-- HERO -->
 <section class="hero" id="about">
   <div class="hero-content">
     <div class="badge">Open to sales opportunities</div>
-    <h1>
-      Business Development<br>
-      <span class="highlight">Built for Growth.</span>
-    </h1>
-    <p class="hero-sub">
-      I help B2B SaaS companies open doors, build pipeline, and close deals across EMEA.
-      Multilingual, data-driven, and obsessed with finding the right fit for the right prospect.
-    </p>
-    <div class="hero-btns">
-      <a href="#experience" class="btn-primary">View my experience</a>
-      <a href="#contact" class="btn-secondary">Let's connect →</a>
-    </div>
+    <h1>Business Development<br><span class="highlight">Built for Growth.</span></h1>
+    <p class="hero-sub">I help B2B SaaS companies open doors, build pipeline, and close deals across EMEA. Multilingual, data-driven, and obsessed with finding the right fit for the right prospect.</p>
+    <div class="hero-btns"><a href="#experience" class="btn-primary">View my experience</a><a href="#contact" class="btn-secondary">Let's connect →</a></div>
   </div>
 </section>
-
-<!-- STATS -->
 <div class="stats">
-  <div class="stat">
-    <div class="stat-num">€25K+</div>
-    <div class="stat-label">Contributed to closed deal</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">18%</div>
-    <div class="stat-label">Positive reply rate</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">10%</div>
-    <div class="stat-label">Meeting-to-opportunity conversion rate</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">20+</div>
-    <div class="stat-label">International markets</div>
-  </div>
+  <div class="stat"><div class="stat-num">€25K+</div><div class="stat-label">Contributed to closed deal</div></div>
+  <div class="stat"><div class="stat-num">18%</div><div class="stat-label">Positive reply rate</div></div>
+  <div class="stat"><div class="stat-num">10%</div><div class="stat-label">Meeting-to-opportunity conversion rate</div></div>
+  <div class="stat"><div class="stat-num">20+</div><div class="stat-label">International markets</div></div>
 </div>
-
-<!-- LOGO BELT - INFINITE SCROLL -->
-<div class="logo-belt">
-  <div class="logo-belt-title">Enterprise Clients & Brands</div>
-  <div class="logo-scroll-wrapper">
-    <div class="logo-container">
-      <div class="logo-item">
-        <img src="Pepsi.png" alt="PepsiCo logo" />
-      </div>
-      <div class="logo-item">
-        <img src="Heineken.png" alt="Heineken logo" />
-      </div>
-      <div class="logo-item">
-        <img src="Dr Pepper.png" alt="Dr Pepper logo" />
-      </div>
-      <div class="logo-item">
-        <img src="Asahi.jpeg" alt="Asahi logo" />
-      </div>
-      <div class="logo-item">
-        <img src="Suntory.png" alt="Suntory logo" />
-      </div>
-      <div class="logo-item">
-        <img src="Carlsberg.png" alt="Carlsberg logo" />
-      </div>
-      <div class="logo-item">
-        <img src="Molson_Coors.png" alt="Molson Coors logo" />
-      </div>
-      <!-- Duplicate for seamless loop -->
-      <div class="logo-item">
-        <img src="Pepsi.png" alt="PepsiCo logo" />
-      </div>
-      <div class="logo-item">
-        <img src="Heineken.png" alt="Heineken logo" />
-      </div>
-      <div class="logo-item">
-        <img src="Dr Pepper.png" alt="Dr Pepper logo" />
-      </div>
-      <div class="logo-item">
-        <img src="Asahi.jpeg" alt="Asahi logo" />
-      </div>
-      <div class="logo-item">
-        <img src="Suntory.png" alt="Suntory logo" />
-      </div>
-      <div class="logo-item">
-        <img src="Carlsberg.png" alt="Carlsberg logo" />
-      </div>
-      <div class="logo-item">
-        <img src="Molson_Coors.png" alt="Molson Coors logo" />
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-label">Career</div>
-  <h2 class="section-title">Experience</h2>
-  <p class="section-sub">From outbound B2B SaaS sales to hospitality operations — I thrive in fast-paced, people-first environments.</p>
-
-  <div class="exp-grid">
-
-    <div class="exp-card">
-      <div class="exp-header">
-        <div>
-          <div class="exp-title">Business Development Representative</div>
-          <div class="exp-company">Dashmote BV</div>
-        </div>
-        <div class="exp-date">2025 – 2026</div>
-      </div>
-      <div class="exp-desc">
-        Conducted outbound B2B SaaS sales across EMEA, engaging enterprise accounts including PepsiCo UK and Heineken Ireland.
-        Contributed to a €25,000 closed deal and achieved an 18% positive reply rate through highly personalized outreach.
-        Leveraged MEDDPICC and BANT frameworks to qualify and advance pipeline.
-      </div>
-      <div class="exp-tags">
-        <span class="tag">MEDDPICC</span>
-        <span class="tag">BANT</span>
-        <span class="tag">HubSpot</span>
-        <span class="tag">Pipedrive</span>
-        <span class="tag">Salesforce</span>
-        <span class="tag">LinkedIn Sales Navigator</span>
-        <span class="tag">Surfe</span>
-        <span class="tag">Lemlist</span>
-        <span class="tag">Clay</span>
-      </div>
-    </div>
-
-    <div class="exp-card">
-      <div class="exp-header">
-        <div>
-          <div class="exp-title">Bar Manager & Assistant General Manager</div>
-          <div class="exp-company">SojuBar Amsterdam</div>
-        </div>
-        <div class="exp-date">Jun 2023 – Present</div>
-      </div>
-      <div class="exp-desc">
-        Overseeing daily bar operations and managing a team of ~10 people. Responsible for scheduling, stock management,
-        customer experience, and training new staff. Gained deep expertise in Lightspeed POS across every shift for 3+ years.
-      </div>
-      <div class="exp-tags">
-        <span class="tag">Team Leadership</span>
-        <span class="tag">Operations</span>
-        <span class="tag">Lightspeed POS</span>
-        <span class="tag">Hospitality</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-  <div class="section-label">Toolkit</div>
-  <h2 class="section-title">Skills & Tools</h2>
-  <p class="section-sub">The stack I use to research, personalize, and convert.</p>
-
-  <div class="skills-grid">
-    <div class="skill-card">
-      <div class="skill-icon">🎯</div>
-      <div class="skill-name">Outbound Sales</div>
-      <div class="skill-desc">Cold email/call, LinkedIn outreach, multi-touch sequences — MEDDPICC & BANT qualified.</div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">🔬</div>
-      <div class="skill-name">Prospect Research</div>
-      <div class="skill-desc">Clay, Surfe, FullEnrich, and AI-powered workflows to build hyper-targeted lead lists.</div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">📊</div>
-      <div class="skill-name">CRM Management</div>
-      <div class="skill-desc">HubSpot, Pipedrive, Salesforce — pipeline hygiene, activity logging, and reporting.</div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">🤖</div>
-      <div class="skill-name">AI & Automation</div>
-      <div class="skill-desc">Claude and Clay to scale personalization without losing quality.</div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">🧾</div>
-      <div class="skill-name">Business Operations</div>
-      <div class="skill-desc">KVK-registered sole proprietorship — invoicing, financial recordkeeping, compliance.</div>
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="section-label">Academic Background</div>
-  <h2 class="section-title">Education</h2>
-  <p class="section-sub">Grounding business instincts in strategy, economics, and international thinking.</p>
-
-  <div class="edu-grid">
-    <div class="edu-card">
-      <div class="edu-header">
-        <div>
-          <div class="edu-degree">BSc Business Administration (Honours)</div>
-          <div class="edu-school">University of Amsterdam</div>
-        </div>
-        <div class="edu-date">2023-2026</div>
-      </div>
-      <div class="edu-desc">
-        Minor in Political Economy. Broad academic grounding in strategy, marketing, and international business, 
-        with a consistent focus on applying frameworks to real-world B2B sales and entrepreneurial contexts.
-      </div>
-      <div class="exp-tags" style="margin-top: 0.9rem;">
-        <span class="tag">Digital Business Models</span>
-        <span class="tag">International Business</span>
-        <span class="tag">Marketing</span>
-        <span class="tag">Strategy and Organisation</span>
-        <span class="tag">Innovation Management</span>
-        <span class="tag">Intercultural Skills</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- LANGUAGES -->
-<section style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 4rem 6%;">
-  <div class="section-label">Languages</div>
-  <h2 class="section-title">Multilingual across 4 languages</h2>
-  <p class="section-sub">A natural advantage for EMEA outreach and international client relationships.</p>
-  <div class="lang-grid">
-    <div class="lang-pill">
-      <span class="lang-flag">🇨🇳</span>
-      <div><div class="lang-name">Mandarin</div><div class="lang-level">Native</div></div>
-    </div>
-    <div class="lang-pill">
-      <span class="lang-flag">🇬🇧</span>
-      <div><div class="lang-name">English</div><div class="lang-level">Native</div></div>
-    </div>
-    <div class="lang-pill">
-      <span class="lang-flag">🇭🇰</span>
-      <div><div class="lang-name">Cantonese</div><div class="lang-level">Intermediate</div></div>
-    </div>
-    <div class="lang-pill">
-      <span class="lang-flag">🇳🇱</span>
-      <div><div class="lang-name">Dutch</div><div class="lang-level">Basic – Intermediate</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- MARKETS MAP -->
-<section id="markets">
-  <div class="section-label">Global Reach</div>
-  <h2 class="section-title">Markets I've worked with</h2>
-  <p class="section-sub">Outbound campaigns across 20+ countries across Europe, Americas, and Asia. Culturally aware and data-driven sales across every region.</p>
-  
-  <div class="map-container">
-    <div id="worldMap"></div>
-  </div>
-</section>
-  
-<!-- CONTACT -->
-<section id="contact" class="contact-section">
-  <div class="contact-box">
-    <h2>Let's build something together.</h2>
-    <p>Open to BDR, SDR, Customer Success, and other sales roles in B2B SaaS and tech.</p>
-    <div class="contact-links">
-      <a href="mailto:yihsun.c0925@gmail.com" class="contact-link">✉️ Email me</a>
-      <a href="https://wa.me/31619858923" target="_blank" class="contact-link">💬 WhatsApp</a>
-      <a href="https://linkedin.com/in/isa-c-701a64241" target="_blank" class="contact-link">💼 LinkedIn</a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <p>© 2026 Isa · Built with purpose, not just code.</p>
-</footer>
-
+<div class="logo-belt"><div class="logo-belt-title">Enterprise Clients & Brands</div><div class="logo-scroll-wrapper"><div class="logo-container">
+  <div class="logo-item"><img src="Pepsi.png" alt="PepsiCo logo" /></div><div class="logo-item"><img src="Heineken.png" alt="Heineken logo" /></div><div class="logo-item"><img src="Dr Pepper.png" alt="Dr Pepper logo" /></div><div class="logo-item"><img src="Asahi.jpeg" alt="Asahi logo" /></div><div class="logo-item"><img src="Suntory.png" alt="Suntory logo" /></div><div class="logo-item"><img src="Carlsberg.png" alt="Carlsberg logo" /></div><div class="logo-item"><img src="Molson_Coors.png" alt="Molson Coors logo" /></div>
+  <div class="logo-item"><img src="Pepsi.png" alt="PepsiCo logo" /></div><div class="logo-item"><img src="Heineken.png" alt="Heineken logo" /></div><div class="logo-item"><img src="Dr Pepper.png" alt="Dr Pepper logo" /></div><div class="logo-item"><img src="Asahi.jpeg" alt="Asahi logo" /></div><div class="logo-item"><img src="Suntory.png" alt="Suntory logo" /></div><div class="logo-item"><img src="Carlsberg.png" alt="Carlsberg logo" /></div><div class="logo-item"><img src="Molson_Coors.png" alt="Molson Coors logo" /></div>
+</div></div></div>
+<section id="experience"><div class="section-label">Career</div><h2 class="section-title">Experience</h2><p class="section-sub">From outbound B2B SaaS sales to hospitality operations — I thrive in fast-paced, people-first environments.</p><div class="exp-grid">
+  <div class="exp-card"><div class="exp-header"><div><div class="exp-title">Business Development Representative</div><div class="exp-company">Dashmote BV</div></div><div class="exp-date">2025 – 2026</div></div><div class="exp-desc">Conducted outbound B2B SaaS sales across EMEA, engaging enterprise accounts including PepsiCo UK and Heineken Ireland. Contributed to a €25,000 closed deal and achieved an 18% positive reply rate through highly personalized outreach. Leveraged MEDDPICC and BANT frameworks to qualify and advance pipeline.</div><div class="exp-tags"><span class="tag">MEDDPICC</span><span class="tag">BANT</span><span class="tag">HubSpot</span><span class="tag">Pipedrive</span><span class="tag">Salesforce</span><span class="tag">LinkedIn Sales Navigator</span><span class="tag">Surfe</span><span class="tag">Lemlist</span><span class="tag">Clay</span></div></div>
+  <div class="exp-card"><div class="exp-header"><div><div class="exp-title">Bar Manager & Assistant General Manager</div><div class="exp-company">SojuBar Amsterdam</div></div><div class="exp-date">Jun 2023 – Present</div></div><div class="exp-desc">Overseeing daily bar operations and managing a team of ~10 people. Responsible for scheduling, stock management, customer experience, and training new staff. Gained deep expertise in Lightspeed POS across every shift for 3+ years.</div><div class="exp-tags"><span class="tag">Team Leadership</span><span class="tag">Operations</span><span class="tag">Lightspeed POS</span><span class="tag">Hospitality</span></div></div>
+</div></section>
+<section id="skills" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);"><div class="section-label">Toolkit</div><h2 class="section-title">Skills & Tools</h2><p class="section-sub">The stack I use to research, personalize, and convert.</p><div class="skills-grid">
+  <div class="skill-card"><div class="skill-icon">🎯</div><div class="skill-name">Outbound Sales</div><div class="skill-desc">Cold email/call, LinkedIn outreach, multi-touch sequences — MEDDPICC & BANT qualified.</div></div>
+  <div class="skill-card"><div class="skill-icon">🔬</div><div class="skill-name">Prospect Research</div><div class="skill-desc">Clay, Surfe, FullEnrich, and AI-powered workflows to build hyper-targeted lead lists.</div></div>
+  <div class="skill-card"><div class="skill-icon">📊</div><div class="skill-name">CRM Management</div><div class="skill-desc">HubSpot, Pipedrive, Salesforce — pipeline hygiene, activity logging, and reporting.</div></div>
+  <div class="skill-card"><div class="skill-icon">🤖</div><div class="skill-name">AI & Automation</div><div class="skill-desc">Claude and Clay to scale personalization without losing quality.</div></div>
+  <div class="skill-card"><div class="skill-icon">🧾</div><div class="skill-name">Business Operations</div><div class="skill-desc">KVK-registered sole proprietorship — invoicing, financial recordkeeping, compliance.</div></div>
+</div></section>
+<section id="education"><div class="section-label">Academic Background</div><h2 class="section-title">Education</h2><p class="section-sub">Grounding business instincts in strategy, economics, and international thinking.</p><div class="edu-grid"><div class="edu-card"><div class="edu-header"><div><div class="edu-degree">BSc Business Administration (Honours)</div><div class="edu-school">University of Amsterdam</div></div><div class="edu-date">2023-2026</div></div><div class="edu-desc">Minor in Political Economy. Broad academic grounding in strategy, marketing, and international business, with a consistent focus on applying frameworks to real-world B2B sales and entrepreneurial contexts.</div><div class="exp-tags" style="margin-top: 0.9rem;"><span class="tag">Digital Business Models</span><span class="tag">International Business</span><span class="tag">Marketing</span><span class="tag">Strategy and Organisation</span><span class="tag">Innovation Management</span><span class="tag">Intercultural Skills</span></div></div></div></section>
+<section style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 4rem 6%;"><div class="section-label">Languages</div><h2 class="section-title">Multilingual across 4 languages</h2><p class="section-sub">A natural advantage for EMEA outreach and international client relationships.</p><div class="lang-grid">
+  <div class="lang-pill"><span class="lang-flag">🇨🇳</span><div><div class="lang-name">Mandarin</div><div class="lang-level">Native</div></div></div><div class="lang-pill"><span class="lang-flag">🇬🇧</span><div><div class="lang-name">English</div><div class="lang-level">Native</div></div></div><div class="lang-pill"><span class="lang-flag">🇭🇰</span><div><div class="lang-name">Cantonese</div><div class="lang-level">Intermediate</div></div></div><div class="lang-pill"><span class="lang-flag">🇳🇱</span><div><div class="lang-name">Dutch</div><div class="lang-level">Basic – Intermediate</div></div></div>
+</div></section>
+<section id="markets"><div class="section-label">Global Reach</div><h2 class="section-title">Markets I've worked with</h2><p class="section-sub">Outbound campaigns across 20+ countries across Europe, Americas, and Asia. Culturally aware and data-driven sales across every region.</p><div class="map-container"><div id="worldMap"></div></div></section>
+<section id="contact" class="contact-section"><div class="contact-box"><h2>Let's build something together.</h2><p>Open to BDR, SDR, Customer Success, and other sales roles in B2B SaaS and tech.</p><div class="contact-links"><a href="mailto:yihsun.c0925@gmail.com" class="contact-link">✉️ Email me</a><a href="https://wa.me/31619858923" target="_blank" class="contact-link">💬 WhatsApp</a><a href="https://linkedin.com/in/isa-c-701a64241" target="_blank" class="contact-link">💼 LinkedIn</a></div></div></section>
+<footer><p>© 2026 Isa · Built with purpose, not just code.</p></footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
-  // Initialize map
-  const map = L.map('worldMap', {
-    center: [30, 10],
-    zoom: 2,
-    zoomControl: true,
-    dragging: true,
-    touchZoom: true,
-  });
+  const map = L.map('worldMap', { center: [30, 10], zoom: 2, zoomControl: true, dragging: true, touchZoom: true });
 
-  // Add dark tile layer
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution: '© OpenStreetMap contributors © CARTO',
+  // OpenStreetMap tiles do not require an API key.
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 19,
   }).addTo(map);
 
-  // List of countries to highlight with their coordinates (center points for markers)
   const highlightedCountries = {
-    // Europe
-    'DK': { name: 'Denmark', coords: [56.2639, 9.5018] },
-    'FI': { name: 'Finland', coords: [61.9241, 25.7482] },
-    'IE': { name: 'Ireland', coords: [53.4129, -8.2439] },
-    'NO': { name: 'Norway', coords: [60.4720, 8.4689] },
-    'SE': { name: 'Sweden', coords: [60.1282, 18.6435] },
-    'GB': { name: 'United Kingdom', coords: [55.3781, -3.4360] },
-    'BE': { name: 'Belgium', coords: [50.5039, 4.4699] },
-    'FR': { name: 'France', coords: [46.2276, 2.2137] },
-    'DE': { name: 'Germany', coords: [51.1657, 10.4515] },
-    'NL': { name: 'Netherlands', coords: [52.1326, 5.2913] },
-    'CH': { name: 'Switzerland', coords: [46.8182, 8.2275] },
-    'CZ': { name: 'Czechia', coords: [49.8175, 15.4730] },
-    'HU': { name: 'Hungary', coords: [47.1625, 19.5033] },
-    'PL': { name: 'Poland', coords: [51.9194, 19.1451] },
-    'RO': { name: 'Romania', coords: [45.9432, 24.9668] },
-    'SK': { name: 'Slovakia', coords: [48.6690, 19.6990] },
-    'IT': { name: 'Italy', coords: [41.8719, 12.5674] },
-    'PT': { name: 'Portugal', coords: [39.3999, -8.2245] },
-    'ES': { name: 'Spain', coords: [40.4637, -3.7492] },
-    // Americas
-    'US': { name: 'USA', coords: [37.0902, -95.7129] },
-    'CA': { name: 'Canada', coords: [56.1304, -106.3468] },
-    'MX': { name: 'Mexico', coords: [23.6345, -102.5528] },
-    'BR': { name: 'Brazil', coords: [-14.2350, -51.9253] },
-    // Africa
-    'ZA': { name: 'South Africa', coords: [-30.5595, 22.9375] },
-    // Asia
-    'JP': { name: 'Japan', coords: [36.2048, 138.2529] },
-    'KR': { name: 'South Korea', coords: [35.9078, 127.7669] },
-    'TW': { name: 'Taiwan', coords: [23.6978, 120.9605] },
-    'SG': { name: 'Singapore', coords: [1.3521, 103.8198] },
-    'KH': { name: 'Cambodia', coords: [12.5657, 104.9910] },
-    'ID': { name: 'Indonesia', coords: [-0.7893, 113.9213] },
-    'MY': { name: 'Malaysia', coords: [4.2105, 101.6964] },
-    'TH': { name: 'Thailand', coords: [15.8700, 100.9925] },
-    'VN': { name: 'Vietnam', coords: [14.0583, 108.2772] },
+    'DK': { name: 'Denmark', coords: [56.2639, 9.5018] }, 'FI': { name: 'Finland', coords: [61.9241, 25.7482] }, 'IE': { name: 'Ireland', coords: [53.4129, -8.2439] }, 'NO': { name: 'Norway', coords: [60.4720, 8.4689] }, 'SE': { name: 'Sweden', coords: [60.1282, 18.6435] }, 'GB': { name: 'United Kingdom', coords: [55.3781, -3.4360] }, 'BE': { name: 'Belgium', coords: [50.5039, 4.4699] }, 'FR': { name: 'France', coords: [46.2276, 2.2137] }, 'DE': { name: 'Germany', coords: [51.1657, 10.4515] }, 'NL': { name: 'Netherlands', coords: [52.1326, 5.2913] }, 'CH': { name: 'Switzerland', coords: [46.8182, 8.2275] }, 'CZ': { name: 'Czechia', coords: [49.8175, 15.4730] }, 'HU': { name: 'Hungary', coords: [47.1625, 19.5033] }, 'PL': { name: 'Poland', coords: [51.9194, 19.1451] }, 'RO': { name: 'Romania', coords: [45.9432, 24.9668] }, 'SK': { name: 'Slovakia', coords: [48.6690, 19.6990] }, 'IT': { name: 'Italy', coords: [41.8719, 12.5674] }, 'PT': { name: 'Portugal', coords: [39.3999, -8.2245] }, 'ES': { name: 'Spain', coords: [40.4637, -3.7492] }, 'US': { name: 'USA', coords: [37.0902, -95.7129] }, 'CA': { name: 'Canada', coords: [56.1304, -106.3468] }, 'MX': { name: 'Mexico', coords: [23.6345, -102.5528] }, 'BR': { name: 'Brazil', coords: [-14.2350, -51.9253] }, 'ZA': { name: 'South Africa', coords: [-30.5595, 22.9375] }, 'JP': { name: 'Japan', coords: [36.2048, 138.2529] }, 'KR': { name: 'South Korea', coords: [35.9078, 127.7669] }, 'TW': { name: 'Taiwan', coords: [23.6978, 120.9605] }, 'SG': { name: 'Singapore', coords: [1.3521, 103.8198] }, 'KH': { name: 'Cambodia', coords: [12.5657, 104.9910] }, 'ID': { name: 'Indonesia', coords: [-0.7893, 113.9213] }, 'MY': { name: 'Malaysia', coords: [4.2105, 101.6964] }, 'TH': { name: 'Thailand', coords: [15.8700, 100.9925] }, 'VN': { name: 'Vietnam', coords: [14.0583, 108.2772] },
   };
-
-  // Create GeoJSON features for highlighted countries
   const highlightedCountryCodes = Object.keys(highlightedCountries);
-
-  // Add circle markers for each country
   Object.values(highlightedCountries).forEach((country) => {
-    L.circleMarker(country.coords, {
-      radius: 6,
-      fillColor: '#4f8ef7',
-      color: '#7c3aed',
-      weight: 2,
-      opacity: 0.8,
-      fillOpacity: 0.6,
-    })
-    .bindPopup(`<div style="color: #e2e8f0; font-weight: 600; text-align: center;">${country.name}</div>`)
-    .addTo(map);
+    L.circleMarker(country.coords, { radius: 6, fillColor: '#4f8ef7', color: '#7c3aed', weight: 2, opacity: 0.8, fillOpacity: 0.6 })
+      .bindPopup(`<div style="color: #e2e8f0; font-weight: 600; text-align: center;">${country.name}</div>`)
+      .addTo(map);
   });
-
-  // Fetch world GeoJSON
   fetch('https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson')
     .then(response => response.json())
     .then(data => {
-      L.geoJSON(data, {
-        style: function(feature) {
-          const countryCode = feature.properties['ISO_A2'];
-          const isHighlighted = highlightedCountryCodes.includes(countryCode);
-          
-          return {
-            fillColor: isHighlighted ? 'rgba(79, 142, 247, 0.3)' : 'rgba(122, 139, 168, 0.05)',
-            weight: isHighlighted ? 1.5 : 0.5,
-            opacity: 0.8,
-            color: isHighlighted ? 'rgba(79, 142, 247, 0.6)' : 'rgba(30, 42, 69, 0.3)',
-            fillOpacity: isHighlighted ? 0.3 : 0.05,
-          };
-        },
-      }).addTo(map);
+      L.geoJSON(data, { style: function(feature) {
+        const countryCode = feature.properties['ISO_A2'];
+        const isHighlighted = highlightedCountryCodes.includes(countryCode);
+        return { fillColor: isHighlighted ? 'rgba(79, 142, 247, 0.3)' : 'rgba(122, 139, 168, 0.05)', weight: isHighlighted ? 1.5 : 0.5, opacity: 0.8, color: isHighlighted ? 'rgba(79, 142, 247, 0.6)' : 'rgba(30, 42, 69, 0.3)', fillOpacity: isHighlighted ? 0.3 : 0.05 };
+      }}).addTo(map);
     });
 </script>
-
 </body>
 </html>
